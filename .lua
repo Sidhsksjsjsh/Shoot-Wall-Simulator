@@ -48,7 +48,7 @@ local wallHandler = {}
 OrionLib:AddTable(workspace["Walls"],wall)
 OrionLib:AddTable(workspace.Eggs,Egg)
 
-for array = 1,#workspace["Walls"]:GetChildren() do
+for array = 1,45 do
   OrionLib:AddTable(workspace["Walls"]["Zone" .. array],wallHandler)
 end
 
