@@ -3,6 +3,18 @@ local Window = OrionLib:MakeWindow({Name = "VIP Turtle Hub V3", HidePremium = fa
 local speaker = game.Players.LocalPlayer
 local workspace = game:GetService("Workspace")
 
+local function getScript(player)
+        local char = player.Character
+        local weapon = char and char:FindFirstChildWhichIsA("Tool")
+    
+        if weapon ~= nil then
+            return weapon.Name
+        else
+            return "Nothing"
+        end
+end
+
+
 local T1 = Window:MakeTab({
   Name = "Main",
   Icon = "rbxassetid://",
@@ -65,7 +77,7 @@ T1:AddToggle({
       _G.Shoot = Value
       while wait() do
         if _G.Shoot == false then break end
-        game:GetService("ReplicatedStorage")["WeaponSystem"]["Remotes"]["WeaponHit"]:FireServer(speaker.Character:FindFirstChild("Green SMG"),{Vector3.new(0,0,0),1,workspace["Walls"][_G.system][_G.systemwlll],0,0,Enum.Material.Plastic,Vector3.new(0,0,0),0,0})
+        game:GetService("ReplicatedStorage")["WeaponSystem"]["Remotes"]["WeaponHit"]:FireServer(speaker.Character:FindFirstChild(getScript(speaker)),{Vector3.new(0,0,0),1,workspace["Walls"][_G.system][_G.systemwlll],0,0,Enum.Material.Plastic,Vector3.new(0,0,0),0,0})
       end
   end    
 })
