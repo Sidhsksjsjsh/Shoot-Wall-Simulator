@@ -36,11 +36,9 @@ local wallHandler = {}
 OrionLib:AddTable(workspace["Walls"],wall)
 OrionLib:AddTable(workspace.Eggs,Egg)
 
-task.spawn(function()
 for array = 1,#workspace["Walls"]:GetChildren() do
   OrionLib:AddTable(workspace["Walls"]["Zone" .. array],wallHandler)
 end
-end)
 
 T1:AddDropdown({
   Name = "Select zone",
